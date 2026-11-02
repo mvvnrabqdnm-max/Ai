@@ -1,65 +1,791 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090a10"><title>AL EHTERAF AI STUDIO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<title>AL EHTERAF AI STUDIO</title>
 <style>
-:root{--bg:#090a10;--p:#121520;--p2:#191c2a;--line:#2b3045;--txt:#f5f3fb;--muted:#999caf;--violet:#9163ff;--gold:#e8c77b;--green:#55d6a4}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#30234b,transparent 40%),var(--bg);color:var(--txt);font-family:Tahoma,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.side{background:#0d0f17;border-left:1px solid var(--line);padding:20px 15px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:23px}.brand{display:flex;gap:11px;align-items:center;padding:4px 7px 20px;border-bottom:1px solid var(--line)}.logo{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#b18cff,#5733ba);font-size:22px}.brand b{display:block;font-size:13px;letter-spacing:1px}.brand small{color:var(--gold);font-size:10px;letter-spacing:2px}.label{font-size:10px;color:#72768b;padding:0 10px 8px}.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:none;color:#b8b9ca;text-align:right;padding:12px;border-radius:11px;font-size:13px}.nav button.active,.nav button:hover{background:#241c39;border-color:#4d3b76;color:white}.nav span{display:inline-block;width:27px;font-size:16px}.sidebox{margin-top:auto;padding:14px;border:1px solid #493968;background:#1b1729;border-radius:14px;font-size:11px;color:var(--muted);line-height:1.8}.sidebox b{color:white}.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;color:var(--muted);font-size:12px}.status{color:var(--green);border:1px solid #285c4d;background:#10251f;border-radius:30px;padding:8px 11px}main{padding:26px clamp(14px,3vw,40px);max-width:1550px;width:100%;margin:auto;min-width:0}.page{display:none}.page.active{display:block}.hero{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:22px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:9px}.hero h1{font-size:clamp(25px,4vw,38px);margin:0 0 9px}.hero p{color:var(--muted);font-size:12px;line-height:1.9;margin:0;max-width:700px}.heroart{width:170px;height:110px;flex:none;border:1px solid #514078;border-radius:18px;background:linear-gradient(135deg,#39275e,#101725);display:grid;place-items:center;font-size:45px}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,1fr);margin:20px 0}.stat,.card{background:linear-gradient(145deg,#161a27,#10121b);border:1px solid var(--line);border-radius:16px}.stat{padding:16px}.stat span{font-size:10px;color:var(--muted)}.stat b{display:block;font-size:24px;margin:9px 0 3px}.stat small{font-size:10px;color:var(--green)}.head{display:flex;justify-content:space-between;align-items:center;margin:23px 0 12px}.head h2{font-size:15px;margin:0}.head span{font-size:10px;color:var(--muted)}.tools{grid-template-columns:repeat(3,1fr)}.tool{padding:17px;min-height:150px}.tool .ico{font-size:26px}.tool h3{font-size:14px;margin:10px 0 6px}.tool p{font-size:11px;color:var(--muted);line-height:1.8}.btn{border:0;border-radius:10px;padding:11px 15px;background:linear-gradient(135deg,#9565ff,#5f39bf);color:white;font-weight:bold;font-size:11px}.btn.alt{background:#22263a;border:1px solid #3a405a;box-shadow:none}.btn.gold{background:linear-gradient(135deg,#efd18a,#a27a35);color:#21190b}.btn.red{background:#3a1c29;border:1px solid #713447}.card{padding:19px}.note{border:1px solid #5b4a2c;background:#241e12;color:#e8d6a8;border-radius:12px;padding:13px;font-size:11px;line-height:1.9}.formgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.field{display:grid;gap:7px;margin-bottom:14px}.field label{font-size:11px;color:#c9c9d7}.field input,.field textarea,.field select{width:100%;background:#0b0d15;border:1px solid #34394f;color:white;border-radius:10px;padding:12px;outline:none}.field textarea{min-height:125px;resize:vertical;line-height:1.8}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--violet)}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.preview{min-height:260px;border:1px dashed #4a4562;border-radius:14px;background:radial-gradient(circle at 50% 40%,#35254e,#10121b 72%);display:grid;place-items:center;text-align:center;padding:20px}.preview .symbol{font-size:48px}.preview h3{font-size:14px}.preview p{font-size:11px;color:var(--muted);line-height:1.8;max-width:330px}.preview video{max-width:100%;max-height:300px}.scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.scene{border:1px solid #373b50;border-radius:11px;overflow:hidden;background:#0d1019}.sceneart{height:90px;display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#392653,#142032)}.scenetxt{padding:10px;font-size:10px;line-height:1.7;color:#c9c9d7}.timeline{background:#0b0d15;border:1px solid #303449;border-radius:12px;padding:14px;margin-top:15px}.track{height:30px;border-radius:6px;background:linear-gradient(90deg,#6542a9 0 28%,#304572 28% 55%,#76543b 55% 78%,#31545b 78%)}.track.audio{height:14px;margin-top:9px;background:repeating-linear-gradient(90deg,#287e70 0 5px,#16483f 5px 10px)}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:11px}td,th{text-align:right;padding:12px 9px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-weight:normal}.badge{padding:5px 8px;border-radius:20px;background:#22263a;color:#d5d4e5;font-size:10px}.badge.green{background:#123328;color:#73e2b8}.badge.gold{background:#332a18;color:#e8ca83}.empty{text-align:center;color:var(--muted);padding:28px}.muted{color:var(--muted)}.foot{border-top:1px solid var(--line);margin-top:32px;padding-top:15px;color:#73778c;font-size:10px;line-height:1.8}.toast{position:fixed;bottom:20px;left:20px;background:#202438;border:1px solid #555b78;border-radius:11px;padding:12px 16px;font-size:12px;opacity:0;transform:translateY(10px);transition:.2s;z-index:5}.toast.show{opacity:1;transform:none}
-@media(max-width:850px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;padding:12px;border:0;border-bottom:1px solid var(--line);gap:10px}.brand{padding-bottom:10px}.label,.sidebox{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.nav span{width:22px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){main{padding:17px 12px}.heroart{display:none}.tools,.formgrid{grid-template-columns:1fr}.two{grid-template-columns:1fr}.scenes{grid-template-columns:1fr 1fr}.status{display:none}}
-</style></head>
-<body><div class="app">
-<aside class="side"><div class="brand"><div class="logo">✦</div><div><b>AL EHTERAF</b><small>AI STUDIO</small></div></div><div><div class="label">القائمة الرئيسية</div><nav class="nav">
-<button class="active" data-page="home"><span>⌂</span>الرئيسية</button><button data-page="create"><span>✧</span>صناعة فيديو</button><button data-page="editor"><span>▤</span>استوديو المونتاج</button><button data-page="library"><span>▣</span>مكتبتي</button><button data-page="keys"><span>⌘</span>إدارة الأكواد</button><button data-page="settings"><span>⚙</span>الإعدادات</button>
-</nav></div><div class="sidebox"><b>مساحة الاستوديو</b><br>نسخة واجهة محلية تجريبية. محرك الفيديو غير مربوط حالياً.</div></aside>
-<main><div class="bar"><div>AL EHTERAF / <span id="crumb">الرئيسية</span></div><span class="status">● يعمل محلياً</span></div>
-<section class="page active" id="page-home"><div class="hero"><div><div class="eyebrow">YOUR CREATIVE AI WORKSPACE</div><h1>حوّل خيالك إلى مشهد سينمائي</h1><p>مساحة إبداعية لتخطيط الفيديوهات، كتابة أوامر التوليد، تنظيم المشاهد وتجربة أدوات المونتاج في مكان واحد.</p></div><div class="heroart">🎬</div></div>
-<div class="grid stats"><div class="stat"><span>المشاريع المحفوظة</span><b id="statProjects">0</b><small>على هذا المتصفح</small></div><div class="stat"><span>المشاهد المخططة</span><b id="statScenes">0</b><small>ضمن جلساتك</small></div><div class="stat"><span>الأكواد التجريبية</span><b id="statKeys">0</b><small>محلية فقط</small></div><div class="stat"><span>محرك الفيديو</span><b style="font-size:16px">غير مربوط</b><small style="color:var(--gold)">بانتظار محرك AI</small></div></div>
-<div class="head"><h2>ابدأ الإبداع</h2><span>أدوات الاستوديو</span></div><div class="grid tools"><div class="card tool"><div class="ico">🎥</div><h3>مولّد الفيديو</h3><p>اكتب وصف المشهد وحدد النمط والمدة ونسبة العرض وجهّز طلب التوليد.</p><button class="btn alt" onclick="go('create')">افتح الاستوديو ←</button></div><div class="card tool"><div class="ico">✂️</div><h3>المونتاج</h3><p>استورد مقطعاً من جهازك وشاهده داخل المعاينة مع مخطط زمني توضيحي.</p><button class="btn alt" onclick="go('editor')">افتح المونتاج ←</button></div><div class="card tool"><div class="ico">🔐</div><h3>الأكواد والتراخيص</h3><p>أنشئ أكواداً تجريبية بمدد مختلفة للاختبار المحلي.</p><button class="btn alt" onclick="go('keys')">إدارة الأكواد ←</button></div></div>
-<div class="head"><h2>ملاحظة حول التوليد الحقيقي</h2></div><div class="note">ملف HTML وحده لا يستطيع توليد فيديو بالذكاء الاصطناعي. يلزم ربط خادم خلفي بمحرك فيديو أو API. زر تجهيز التصور ينشئ مخطط مشاهد نصياً فقط، ولا ينتج ملف فيديو.</div></section>
+:root {
+ --bg:#080b14;
+ --panel:#101625;
+ --panel2:#151e30;
+ --line:#25334a;
+ --text:#f4f7ff;
+ --muted:#91a0b8;
+ --accent:#795cff;
+ --cyan:#20d9ef;
+ --green:#36d69a;
+ --red:#ff647c;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,Tahoma,sans-serif;
+ min-height:100vh;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.app{display:flex;min-height:100vh}
+.sidebar{
+ width:245px;background:#0d1320;border-left:1px solid var(--line);
+ padding:22px 14px;position:fixed;right:0;top:0;bottom:0;
+ overflow-y:auto;z-index:10;
+}
+.logo{font-size:19px;font-weight:900;line-height:1.5}
+.logo span{color:var(--cyan)}
+.tagline{font-size:11px;color:var(--muted);margin:5px 0 25px}
+.nav-title{font-size:11px;color:#74839c;margin:20px 10px 9px}
+.nav{
+ width:100%;border:0;background:transparent;color:#aebbd0;
+ padding:12px;border-radius:10px;text-align:right;
+ margin:3px 0;display:flex;gap:12px;align-items:center;
+}
+.nav:hover,.nav.active{background:#202c44;color:white}
+.nav.active{border-right:3px solid var(--cyan)}
+.main{margin-right:245px;width:calc(100% - 245px);padding:25px}
+.topbar{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:12px;margin-bottom:25px;flex-wrap:wrap
+}
+.status{font-size:12px;color:var(--green)}
+.pill{
+ background:#142638;border:1px solid #24455b;
+ padding:8px 12px;border-radius:20px;font-size:12px
+}
+.hero{
+ background:linear-gradient(120deg,#21194b,#111d34 65%,#102b39);
+ border:1px solid #35436a;border-radius:20px;
+ padding:30px;margin-bottom:22px;
+}
+.hero h1{font-size:30px;margin:0 0 12px}
+.hero h1 span{color:#8b7aff}
+.hero p{color:#bdc8da;line-height:1.9;max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:15px;padding:19px;margin-bottom:15px;
+}
+.stat{font-size:26px;font-weight:900;margin:12px 0 5px}
+.muted{color:var(--muted);font-size:12px}
+.card-icon{font-size:25px}
+.section{display:none}
+.section.active{display:block}
+.section-title{font-size:23px;margin:0 0 8px}
+.section-desc{color:var(--muted);font-size:13px;margin-bottom:22px}
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tool{
+ background:var(--panel);border:1px solid var(--line);
+ padding:19px;border-radius:15px;cursor:pointer;
+ transition:.2s;
+}
+.tool:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tool h3{font-size:16px}
+.tool p{color:var(--muted);font-size:12px;line-height:1.8}
+.btn{
+ border:0;border-radius:9px;padding:11px 17px;
+ color:white;background:linear-gradient(100deg,#7154ef,#328cda);
+ font-weight:bold;
+}
+.btn.secondary{background:#25344b}
+.btn.danger{background:#9c3047}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.field{margin:15px 0}
+.field label{display:block;font-size:13px;margin-bottom:8px}
+.field input,.field textarea,.field select{
+ width:100%;background:#0b1220;border:1px solid var(--line);
+ color:white;padding:13px;border-radius:9px;outline:none;
+}
+.field textarea{min-height:125px;resize:vertical;line-height:1.8}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1}
+.output{
+ background:#090f1a;border:1px solid var(--line);
+ border-radius:10px;padding:15px;min-height:100px;
+ white-space:pre-wrap;line-height:1.8;overflow-wrap:anywhere;
+}
+.notice{
+ border:1px solid #65552a;background:#292313;
+ padding:13px;border-radius:10px;color:#f0d99a;
+ font-size:12px;line-height:1.8;margin:15px 0
+}
+.chat{
+ height:360px;overflow-y:auto;background:#090f1a;
+ border:1px solid var(--line);border-radius:12px;padding:15px;
+}
+.msg{padding:12px;margin:8px 0;border-radius:12px;line-height:1.8;white-space:pre-wrap}
+.msg.user{background:#20294a;margin-right:35px}
+.msg.ai{background:#142c35;margin-left:35px}
+.toast{
+ position:fixed;bottom:20px;left:20px;background:#20364a;
+ padding:12px 18px;border-radius:10px;display:none;z-index:50;
+}
+footer{text-align:center;color:#718099;padding:25px;font-size:11px}
+@media(max-width:1000px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .tools{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+ .sidebar{width:65px;padding:12px 6px}
+ .logo{font-size:0;text-align:center}
+ .logo span{font-size:17px}
+ .tagline,.nav-title,.nav .label{display:none}
+ .nav{justify-content:center;padding:14px 5px}
+ .main{margin-right:65px;width:calc(100% - 65px);padding:13px}
+ .hero{padding:20px}
+ .hero h1{font-size:23px}
+ .tools{grid-template-columns:1fr}
+ .grid{gap:8px}
+ .card{padding:13px}
+}
+</style>
+</head>
+<body>
+<div class="app">
 
-<section class="page" id="page-create"><div class="hero"><div><div class="eyebrow">AI VIDEO WORKSPACE</div><h1>صناعة فيديو سينمائي</h1><p>اكتب فكرتك، وسيجهز الاستوديو وصفاً منظماً ومخطط مشاهد قابل للنسخ.</p></div></div>
-<div class="formgrid"><div class="card"><div class="field"><label>اسم المشروع</label><input id="projectName" value="مشروعي السينمائي الأول" maxlength="70"></div><div class="field"><label>وصف الفيديو / Prompt</label><textarea id="prompt" placeholder="مثال: لقطة جوية لمدينة مستقبلية ليلاً، شوارع مبتلة تعكس أضواء النيون، سيارة رياضية تعبر الجسر، حركة كاميرا سينمائية بطيئة..."></textarea></div>
-<div class="two"><div class="field"><label>الأسلوب البصري</label><select id="style"><option>واقعي سينمائي</option><option>خيال علمي</option><option>أكشن وتشويق</option><option>وثائقي</option><option>فانتازيا</option><option>إعلان تجاري فاخر</option><option>أنمي</option></select></div><div class="field"><label>حركة الكاميرا</label><select id="camera"><option>حركة سينمائية ناعمة</option><option>Drone / لقطة جوية</option><option>Dolly In</option><option>Tracking Shot</option><option>Handheld</option><option>Static Wide Shot</option></select></div></div>
-<div class="two"><div class="field"><label>المدة المستهدفة</label><select id="duration"><option>5 ثوانٍ</option><option>10 ثوانٍ</option><option>15 ثانية</option><option>30 ثانية</option><option>60 ثانية</option></select></div><div class="field"><label>نسبة العرض</label><select id="ratio"><option>16:9 — شاشة عريضة</option><option>9:16 — عمودي</option><option>1:1 — مربع</option><option>2.39:1 — سينمائي</option></select></div></div>
-<div class="two"><div class="field"><label>الإضاءة</label><select id="lighting"><option>إضاءة سينمائية درامية</option><option>Golden Hour</option><option>إضاءة نيون ليلية</option><option>ضوء طبيعي ناعم</option><option>High Contrast</option></select></div><div class="field"><label>الجودة المطلوبة</label><select id="quality"><option>1080p</option><option>720p</option><option>4K (حسب المحرك)</option></select></div></div>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="prepare()">✦ جهّز التصور السينمائي</button><button class="btn alt" onclick="copyPrompt()">نسخ الوصف</button><button class="btn alt" onclick="saveProject()">حفظ المشروع</button></div></div>
-<div class="card"><div class="head" style="margin-top:0"><h2>معاينة المشروع</h2><span class="badge gold">وضع تخطيطي</span></div><div class="preview" id="preview"><div><div class="symbol">🎬</div><h3>المشهد بانتظار فكرتك</h3><p>اكتب وصفك ثم اضغط «جهّز التصور السينمائي» لإنشاء مخطط مشاهد نصي.</p></div></div><div class="note" style="margin-top:12px">لا يتم إنشاء فيديو فعلي في هذه النسخة. المعروض تصور ومخطط مشاهد فقط.</div></div></div>
-<div id="storyboard" style="display:none"><div class="head"><h2>لوحة المشاهد Storyboard</h2><span id="sceneMeta"></span></div><div class="scenes" id="scenes"></div></div></section>
+<aside class="sidebar">
+ <div class="logo">AL EHTERAF <span>AI</span> STUDIO</div>
+ <div class="tagline">CREATIVE INTELLIGENCE PLATFORM</div>
 
-<section class="page" id="page-editor"><div class="hero"><div><div class="eyebrow">EDITING ROOM</div><h1>استوديو المونتاج</h1><p>استورد فيديو من جهازك لمعاينته. المخطط الزمني توضيحي ولا ينفذ قصاً أو تصديراً احترافياً.</p></div></div><div class="card"><div class="field"><label>استيراد فيديو من جهازك</label><input type="file" id="videoFile" accept="video/*"></div><div class="preview" id="videoPreview"><div><div class="symbol">📽️</div><h3>لا يوجد فيديو مستورد</h3><p>اختر ملف فيديو محلياً لعرضه داخل المتصفح.</p></div></div><div class="timeline"><b style="font-size:12px">المخطط الزمني — معاينة شكلية</b><p class="muted" style="font-size:10px">مسار الفيديو</p><div class="track"></div><p class="muted" style="font-size:10px">المسار الصوتي</p><div class="track audio"></div><p class="muted" style="font-size:10px">يلزم محرك تحرير فعلي لتنفيذ القص والدمج والتصدير.</p></div></div></section>
+ <div class="nav-title">القائمة الرئيسية</div>
+ <button class="nav active" onclick="showPage('home',this)">🏠 <span class="label">الرئيسية</span></button>
+ <button class="nav" onclick="showPage('chat',this)">🤖 <span class="label">المساعد الذكي</span></button>
+ <button class="nav" onclick="showPage('writing',this)">✍️ <span class="label">الكتابة والبرمجة</span></button>
+ <button class="nav" onclick="showPage('image',this)">🎨 <span class="label">استوديو الصور</span></button>
+ <button class="nav" onclick="showPage('video',this)">🎬 <span class="label">استوديو الفيديو</span></button>
+ <button class="nav" onclick="showPage('editor',this)">🖼️ <span class="label">محرر الملفات</span></button>
 
-<section class="page" id="page-library"><div class="hero"><div><div class="eyebrow">YOUR PROJECTS</div><h1>مكتبتي</h1><p>المشاريع المحفوظة من صفحة صناعة الفيديو على هذا المتصفح.</p></div><button class="btn" onclick="go('create')">＋ مشروع جديد</button></div><div class="card tablewrap"><table><thead><tr><th>اسم المشروع</th><th>الأسلوب</th><th>المدة</th><th>تاريخ الحفظ</th><th>إجراء</th></tr></thead><tbody id="projectRows"></tbody></table></div></section>
+ <div class="nav-title">الإعدادات</div>
+ <button class="nav" onclick="showPage('settings',this)">⚙️ <span class="label">إعدادات المحركات</span></button>
+ <button class="nav" onclick="showPage('projects',this)">📁 <span class="label">مشاريعي</span></button>
+</aside>
 
-<section class="page" id="page-keys"><div class="hero"><div><div class="eyebrow">LICENSE CONTROL</div><h1>إدارة الأكواد الذكية</h1><p>إنشاء أكواد اختبارية بمدد مختلفة ضمن هذا المتصفح.</p></div></div><div class="note" style="margin-bottom:15px">تنبيه أمني: هذا النظام داخل HTML وذاكرة المتصفح فقط، ويمكن تجاوزه أو تعديل بياناته. لا تستخدمه لحماية اشتراكات أو بيع تراخيص حقيقية. النظام الحقيقي يحتاج خادماً وقاعدة بيانات للتحقق من الأكواد.</div>
-<div class="formgrid"><div class="card"><div class="field"><label>نوع الترخيص</label><select id="keyType"><option value="1">يوم واحد</option><option value="60">شهرين (60 يوماً)</option><option value="365">سنوي (365 يوماً)</option><option value="permanent">دائم</option><option value="lifetime">مدى الحياة</option></select></div><div class="field"><label>عدد الأكواد</label><input id="keyCount" type="number" min="1" max="50" value="1"></div><button class="btn gold" onclick="generateKeys()">＋ إنشاء الأكواد</button></div><div class="card"><h3 style="font-size:14px">ملخص التراخيص</h3><div class="two"><div class="stat"><span>إجمالي الأكواد</span><b id="keyTotal">0</b></div><div class="stat"><span>غير مستخدمة</span><b id="keyUnused">0</b></div></div><p class="muted" style="font-size:10px;line-height:1.8">«دائم» و«مدى الحياة» بلا تاريخ انتهاء في هذه النسخة التجريبية.</p></div></div>
-<div class="head"><h2>قائمة الأكواد</h2><button class="btn alt" onclick="exportKeys()">تصدير CSV</button></div><div class="card tablewrap"><table><thead><tr><th>الكود</th><th>النوع</th><th>الانتهاء</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="keyRows"></tbody></table></div></section>
+<main class="main">
+ <div class="topbar">
+  <div><b>AL EHTERAF AI STUDIO</b><div class="muted">منصة الذكاء الاصطناعي الإبداعية</div></div>
+  <div class="row" style="flex:0;align-items:center">
+   <span class="pill">● النظام المحلي</span>
+   <span class="status" id="connection">بانتظار الإعداد</span>
+  </div>
+ </div>
 
-<section class="page" id="page-settings"><div class="hero"><div><div class="eyebrow">PREFERENCES</div><h1>الإعدادات</h1><p>حالة الواجهة والتخزين المحلي.</p></div></div><div class="card"><h3 style="font-size:14px">حالة الربط</h3><p class="muted" style="font-size:12px;line-height:2">محرك توليد الفيديو: غير مربوط<br>خادم خلفي: غير موجود<br>مفتاح API: غير مطلوب لهذه الواجهة<br>التخزين: LocalStorage داخل المتصفح</p><div class="note">لتحويل الواجهة إلى منصة فعلية، يلزم ربط خادم وسيط بمحرك توليد فيديو متوافق أو خدمة API، وحفظ المفاتيح على الخادم لا في HTML.</div><p><button class="btn red" onclick="clearLocal()">مسح بيانات الواجهة من المتصفح</button></p></div></section>
-<footer class="foot">AL EHTERAF AI STUDIO © <span id="year"></span> — واجهة محلية تجريبية. لا تدّعي إنشاء فيديو أو حماية تراخيص حقيقية دون خادم ومحرك توليد.</footer>
-</main></div><div class="toast" id="toast"></div>
+ <section id="home" class="section active">
+  <div class="hero">
+   <h1>مرحباً بك في <span>AL EHTERAF</span></h1>
+   <p>مساحة عمل موحدة للذكاء الاصطناعي. اكتب، برمج، صمم، أنشئ أفكار الفيديو، وأدر مشاريعك من مكان واحد.</p>
+   <button class="btn" onclick="showPage('chat')">ابدأ الآن ←</button>
+  </div>
+  <div class="grid">
+   <div class="card"><div class="card-icon">🤖</div><div class="stat">AI</div><div class="muted">المساعد الذكي</div></div>
+   <div class="card"><div class="card-icon">🎨</div><div class="stat">IMG</div><div class="muted">استوديو الصور</div></div>
+   <div class="card"><div class="card-icon">🎬</div><div class="stat">VIDEO</div><div class="muted">تخطيط الفيديو</div></div>
+   <div class="card"><div class="card-icon">💻</div><div class="stat">DEV</div><div class="muted">البرمجة والأكواد</div></div>
+  </div>
+  <div class="card">
+   <h3>مركز الأدوات</h3>
+   <div class="tools">
+    <div class="tool" onclick="showPage('chat')"><h3>🤖 محادثة AI</h3><p>تحدث مع محرك ذكاء اصطناعي عبر API.</p></div>
+    <div class="tool" onclick="showPage('writing')"><h3>💻 مولد الأكواد</h3><p>إنشاء الأكواد وشرحها وتصحيحها.</p></div>
+    <div class="tool" onclick="showPage('image')"><h3>🎨 توليد الصور</h3><p>إنشاء أوصاف احترافية للصور.</p></div>
+    <div class="tool" onclick="showPage('video')"><h3>🎬 صناعة الفيديو</h3><p>تحضير المشاهد والسيناريوهات.</p></div>
+    <div class="tool" onclick="showPage('editor')"><h3>📂 تحرير الملفات</h3><p>فتح الصور والنصوص محلياً.</p></div>
+    <div class="tool" onclick="showPage('settings')"><h3>⚙️ ربط المحركات</h3><p>إعداد مفاتيح خدمات الذكاء الاصطناعي.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="chat" class="section">
+  <h2 class="section-title">🤖 المساعد الذكي</h2>
+  <p class="section-desc">محادثة مع محرك AI خارجي بعد ربط مفتاح API.</p>
+  <div class="card">
+   <div class="chat" id="chatbox">
+    <div class="msg ai">مرحباً! أنا مساعد AL EHTERAF. اربط محركاً من الإعدادات ثم اكتب سؤالك.</div>
+   </div>
+   <div class="field"><textarea id="question" placeholder="اكتب سؤالك هنا..."></textarea></div>
+   <div class="row">
+    <button class="btn" onclick="sendMessage()">إرسال الرسالة</button>
+    <button class="btn secondary" onclick="clearChat()">مسح المحادثة</button>
+   </div>
+  </div>
+ </section>
+
+ <section id="writing" class="section">
+  <h2 class="section-title">✍️ الكتابة والبرمجة</h2>
+  <p class="section-desc">إنشاء النصوص والأكواد وشرحها وتصحيحها.</p>
+  <div class="card">
+   <div class="field">
+    <label>نوع المهمة</label>
+    <select id="writeMode">
+     <option>كتابة نص احترافي</option>
+     <option>كتابة كود HTML</option>
+     <option>كتابة كود CSS</option>
+     <option>كتابة JavaScript</option>
+     <option>كتابة Python</option>
+     <option>شرح كود برمجي</option>
+     <option>تصحيح أخطاء برمجية</option>
+     <option>إنشاء خطة مشروع</option>
+    </select>
+   </div>
+   <div class="field"><label>وصف المطلوب</label><textarea id="writePrompt" placeholder="اشرح بالتفصيل ما تريد إنشاءه..."></textarea></div>
+   <button class="btn" onclick="generateWriting()">إنشاء</button>
+   <div class="field"><label>النتيجة</label><div id="writeOutput" class="output">ستظهر النتيجة هنا.</div></div>
+   <button class="btn secondary" onclick="copyElement('writeOutput')">نسخ النتيجة</button>
+  </div>
+ </section>
+
+ <section id="image" class="section">
+  <h2 class="section-title">🎨 استوديو الصور</h2>
+  <p class="section-desc">إنشاء أوصاف دقيقة لتوليد الصور وتحريرها.</p>
+  <div class="card">
+   <div class="field"><label>وصف الصورة</label><textarea id="imagePrompt" placeholder="صف الصورة التي تريدها بالتفصيل..."></textarea></div>
+   <div class="field">
+    <label>النمط</label>
+    <select id="imageStyle">
+     <option>واقعي احترافي</option>
+     <option>سينمائي</option>
+     <option>ثلاثي الأبعاد 3D</option>
+     <option>أنمي</option>
+     <option>تصميم تجاري</option>
+     <option>GTA واقعي</option>
+    </select>
+   </div>
+   <button class="btn" onclick="makeImagePrompt()">إنشاء وصف الصورة</button>
+   <div class="field"><label>الوصف الجاهز</label><div id="imageOutput" class="output">سيظهر وصف الصورة هنا.</div></div>
+   <button class="btn secondary" onclick="copyElement('imageOutput')">نسخ الوصف</button>
+   <div class="notice">ملاحظة: هذه الواجهة تنشئ وصفاً للصورة. توليد صورة فعلية يحتاج خدمة توليد صور متصلة أو نموذجاً محلياً.</div>
+  </div>
+ </section>
+
+ <section id="video" class="section">
+  <h2 class="section-title">🎬 استوديو الفيديو</h2>
+  <p class="section-desc">إنشاء سيناريو ومشاهد وأوامر جاهزة لمحركات الفيديو.</p>
+  <div class="card">
+   <div class="field"><label>فكرة الفيديو</label><textarea id="videoPrompt" placeholder="مثلاً: إعلان سينمائي لمدينة مستقبلية..."></textarea></div>
+   <div class="row">
+    <div class="field"><label>المدة</label>
+     <select id="videoDuration">
+      <option>15 ثانية</option><option>30 ثانية</option>
+      <option>60 ثانية</option><option>120 ثانية</option>
+     </select>
+    </div>
+    <div class="field"><label>نسبة الأبعاد</label>
+     <select id="videoRatio"><option>16:9</option><option>9:16</option><option>1:1</option></select>
+    </div>
+   </div>
+   <div class="field"><label>الأسلوب</label>
+    <select id="videoStyle">
+     <option>سينمائي واقعي</option><option>إعلاني</option>
+     <option>وثائقي</option><option>أنيميشن</option>
+    </select>
+   </div>
+   <button class="btn" onclick="makeVideoPlan()">إنشاء خطة الفيديو</button>
+   <div class="field"><label>السيناريو</label><div class="output" id="videoOutput">سيظهر السيناريو هنا.</div></div>
+   <button class="btn secondary" onclick="copyElement('videoOutput')">نسخ السيناريو</button>
+   <div class="notice">تنبيه: إنشاء السيناريو لا ينتج ملف فيديو حقيقياً. التوليد الفعلي يحتاج محرك فيديو مثل خدمة خارجية تدعم API أو نموذجاً محلياً مناسباً.</div>
+  </div>
+ </section>
+
+ <section id="editor" class="section">
+  <h2 class="section-title">🖼️ محرر الملفات</h2>
+  <p class="section-desc">معاينة الصور والنصوص والملفات التي تختارها.</p>
+  <div class="card">
+   <div class="field"><label>اختر ملفاً</label><input type="file" id="fileInput" accept="image/*,.txt,.html,.css,.js,.json,.md"></div>
+   <div id="filePreview" class="output">اختر ملفاً لمعاينته.</div>
+   <button class="btn secondary" onclick="copyElement('filePreview')">نسخ النص</button>
+  </div>
+ </section>
+
+ <section id="settings" class="section">
+  <h2 class="section-title">⚙️ إعدادات المحركات</h2>
+  <p class="section-desc">اربط خدمات AI باستخدام مفاتيح API الخاصة بك.</p>
+  <div class="card">
+   <div class="field"><label>اختيار المحرك</label>
+    <select id="provider">
+     <option value="groq">Groq</option>
+     <option value="gemini">Google Gemini</option>
+     <option value="openrouter">OpenRouter</option>
+    </select>
+   </div>
+   <div class="field"><label>API Key</label><input id="apiKey" type="password" placeholder="أدخل مفتاح API"></div>
+   <div class="field"><label>اسم النموذج (اختياري)</label><input id="modelName" placeholder="اتركه فارغاً لاستخدام النموذج الافتراضي"></div>
+   <button class="btn" onclick="saveSettings()">حفظ الإعدادات</button>
+   <div class="notice">للحماية، لا تنشر هذا الملف مع مفاتيحك ولا تضع مفاتيح API داخل موقع عام. التخزين المحلي هنا للتجربة فقط وليس حماية حقيقية.</div>
+  </div>
+ </section>
+
+ <section id="projects" class="section">
+  <h2 class="section-title">📁 مشاريعي</h2>
+  <p class="section-desc">المشاريع المحفوظة على هذا المتصفح.</p>
+  <div class="card">
+   <div class="field"><label>اسم المشروع</label><input id="projectName" placeholder="اسم المشروع"></div>
+   <div class="field"><label>وصف المشروع</label><textarea id="projectDesc" placeholder="اكتب تفاصيل المشروع..."></textarea></div>
+   <button class="btn" onclick="saveProject()">حفظ المشروع</button>
+   <div id="projectList" style="margin-top:20px"></div>
+  </div>
+ </section>
+
+ <footer>AL EHTERAF AI STUDIO · Creative Intelligence Workspace</footer>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
 <script>
-const $=id=>document.getElementById(id),read=(k,d=[])=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-let projects=read('ehteraf_projects'),keys=read('ehteraf_keys'),lastScenes=[];$('year').textContent=new Date().getFullYear();
-function toast(s){let e=$('toast');e.textContent=s;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2400)}
-function go(n){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$('page-'+n).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===n));$('crumb').textContent=({home:'الرئيسية',create:'صناعة فيديو',editor:'استوديو المونتاج',library:'مكتبتي',keys:'إدارة الأكواد',settings:'الإعدادات'})[n];if(n==='library')renderProjects();if(n==='keys')renderKeys();scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.page));
-function fullPrompt(){return `Create a ${$('style').value} cinematic video. Scene: ${$('prompt').value.trim()}. Camera: ${$('camera').value}. Lighting: ${$('lighting').value}. Duration: ${$('duration').value}. Aspect ratio: ${$('ratio').value}. Target quality: ${$('quality').value}. High visual coherence, detailed environment, natural motion, cinematic composition.`}
-function fallbackCopy(t){let a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();document.execCommand('copy');a.remove();toast('تم نسخ الوصف')}
-function copyPrompt(){if(!$('prompt').value.trim())return toast('اكتب وصف المشهد أولاً');let t=fullPrompt();if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(()=>toast('تم نسخ وصف التوليد')).catch(()=>fallbackCopy(t));else fallbackCopy(t)}
-function prepare(){let p=$('prompt').value.trim();if(!p)return toast('اكتب فكرة الفيديو أولاً');lastScenes=[{icon:'🌆',name:'تأسيس اللقطة والمكان',desc:'لقطة تأسيسية للمكان والأجواء: '+p.slice(0,100)},{icon:'🎥',name:'الحركة والتفاصيل الرئيسية',desc:'حركة كاميرا '+$('camera').value+' مع إبراز العنصر الرئيسي.'},{icon:'✨',name:'الخاتمة واللقطة الأخيرة',desc:'خاتمة بصرية بنمط '+$('style').value+' وإضاءة '+$('lighting').value+'.'}];$('preview').innerHTML='<div><div class="symbol">🎞️</div><h3>تم تجهيز التصور السينمائي</h3><p>مخطط نصي من 3 مشاهد. هذا ليس فيديو مولّداً.</p><button class="btn alt" onclick="copyPrompt()">نسخ Prompt الكامل</button></div>';$('storyboard').style.display='block';$('sceneMeta').textContent=$('duration').value+' • '+$('ratio').value;$('scenes').innerHTML=lastScenes.map(s=>`<div class="scene"><div class="sceneart">${s.icon}</div><div class="scenetxt"><b>${s.name}</b><br>${s.desc}</div></div>`).join('');updateStats();toast('اكتمل التصور النصي')}
-function saveProject(){let p=$('prompt').value.trim();if(!p)return toast('اكتب وصف المشروع أولاً');projects.unshift({id:Date.now(),name:$('projectName').value.trim()||'مشروع بدون اسم',prompt:p,style:$('style').value,duration:$('duration').value,date:new Date().toLocaleDateString('ar-IQ')});write('ehteraf_projects',projects);updateStats();toast('تم حفظ المشروع محلياً')}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function renderProjects(){let e=$('projectRows');e.innerHTML=projects.length?projects.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.style)}</td><td>${esc(p.duration)}</td><td>${esc(p.date)}</td><td><button class="btn alt" onclick="loadProject(${p.id})">فتح</button> <button class="btn red" onclick="deleteProject(${p.id})">حذف</button></td></tr>`).join(''):'<tr><td colspan="5" class="empty">لا توجد مشاريع محفوظة بعد.</td></tr>'}
-function loadProject(id){let p=projects.find(x=>x.id===id);if(!p)return;$('projectName').value=p.name;$('prompt').value=p.prompt;$('style').value=p.style;$('duration').value=p.duration;go('create');toast('تم فتح المشروع')}
-function deleteProject(id){projects=projects.filter(p=>p.id!==id);write('ehteraf_projects',projects);renderProjects();updateStats()}
-function makeCode(){let a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='EH-';for(let i=0;i<4;i++){for(let j=0;j<4;j++)s+=a[Math.floor(Math.random()*a.length)];if(i<3)s+='-'}return s}
-function generateKeys(){let n=Math.max(1,Math.min(50,Number($('keyCount').value)||1)),t=$('keyType').value,now=Date.now();for(let i=0;i<n;i++){let c=makeCode();while(keys.some(k=>k.code===c))c=makeCode();keys.push({code:c,type:t==='permanent'?'دائم':t==='lifetime'?'مدى الحياة':t==='1'?'يوم واحد':t==='60'?'شهرين':'سنوي',expires:['permanent','lifetime'].includes(t)?null:now+Number(t)*86400000,used:false})}write('ehteraf_keys',keys);renderKeys();updateStats();toast('تم إنشاء '+n+' كود تجريبي')}
-function renderKeys(){ $('keyTotal').textContent=keys.length;$('keyUnused').textContent=keys.filter(k=>!k.used).length;$('keyRows').innerHTML=keys.length?keys.map((k,i)=>`<tr><td style="font-family:monospace;direction:ltr">${esc(k.code)}</td><td>${esc(k.type)}</td><td>${k.expires?new Date(k.expires).toLocaleDateString('ar-IQ'):'بدون انتهاء'}</td><td><span class="badge ${k.used?'gold':'green'}">${k.used?'مستخدم':'غير مستخدم'}</span></td><td><button class="btn alt" onclick="copyKey(${i})">نسخ</button> <button class="btn red" onclick="removeKey(${i})">حذف</button></td></tr>`).join(''):'<tr><td colspan="5" class="empty">لم يتم إنشاء أكواد.</td></tr>'}
-function copyKey(i){fallbackCopy(keys[i].code)}function removeKey(i){keys.splice(i,1);write('ehteraf_keys',keys);renderKeys();updateStats()}
-function exportKeys(){if(!keys.length)return toast('لا توجد أكواد');let csv='code,type,expires,status\n'+keys.map(k=>[k.code,k.type,k.expires?new Date(k.expires).toISOString():'never',k.used?'used':'unused'].join(',')).join('\n'),blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ehteraf-demo-licenses.csv';a.click();URL.revokeObjectURL(url)}
-function updateStats(){$('statProjects').textContent=projects.length;$('statKeys').textContent=keys.length;$('statScenes').textContent=lastScenes.length}
-$('videoFile').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;if(!f.type.startsWith('video/'))return toast('اختر ملف فيديو صالحاً');let u=URL.createObjectURL(f);$('videoPreview').innerHTML=`<video controls src="${u}"></video>`;toast('تم تحميل الفيديو للمعاينة')});
-function clearLocal(){if(!confirm('مسح المشاريع والأكواد التجريبية المحفوظة؟'))return;localStorage.removeItem('ehteraf_projects');localStorage.removeItem('ehteraf_keys');projects=[];keys=[];renderProjects();renderKeys();updateStats();toast('تم مسح البيانات المحلية')}
-updateStats();renderKeys();
-</script></body></html>
+/* =====================================
+   AL EHTERAF AI STUDIO
+   APPLICATION ENGINE
+===================================== */
+
+function toast(message){
+ const t=document.getElementById('toast');
+ t.textContent=message;
+ t.style.display='block';
+ clearTimeout(window.toastTimer);
+ window.toastTimer=setTimeout(()=>t.style.display='none',2500);
+}
+
+function showPage(id,button){
+ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+ const page=document.getElementById(id);
+ if(!page)return;
+ page.classList.add('active');
+
+ document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));
+ if(button)button.classList.add('active');
+
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function copyElement(id){
+ const el=document.getElementById(id);
+ const text=el.innerText || el.value || '';
+
+ if(navigator.clipboard && window.isSecureContext){
+  navigator.clipboard.writeText(text)
+  .then(()=>toast('تم النسخ بنجاح'))
+  .catch(()=>fallbackCopy(text));
+ }else{
+  fallbackCopy(text);
+ }
+}
+
+function fallbackCopy(text){
+ const area=document.createElement('textarea');
+ area.value=text;
+ document.body.appendChild(area);
+ area.select();
+ document.execCommand('copy');
+ area.remove();
+ toast('تم نسخ النص');
+}
+
+/* =====================================
+   SETTINGS AND AI ENGINES
+===================================== */
+
+function saveSettings(){
+ const provider=document.getElementById('provider').value;
+ const key=document.getElementById('apiKey').value.trim();
+ const model=document.getElementById('modelName').value.trim();
+
+ if(!key){
+  toast('أدخل API Key أولاً');
+  return;
+ }
+
+ const settings={provider,key,model};
+
+ try{
+  localStorage.setItem('ehteraf_settings',JSON.stringify(settings));
+  document.getElementById('connection').textContent='تم حفظ الإعدادات';
+  toast('تم حفظ الإعدادات محلياً');
+ }catch(e){
+  toast('تعذر حفظ الإعدادات');
+ }
+}
+
+function getSettings(){
+ try{
+  return JSON.parse(localStorage.getItem('ehteraf_settings')) || null;
+ }catch(e){
+  return null;
+}
+
+/* =====================================
+   AI REQUEST ENGINE
+===================================== */
+
+async function askAI(prompt,systemMessage='You are a helpful AI assistant.'){
+ const settings=getSettings();
+
+ if(!settings || !settings.key){
+  throw new Error('يرجى ربط محرك AI من صفحة الإعدادات أولاً.');
+ }
+
+ const {provider,key,model}=settings;
+
+ let url='';
+ let modelName='';
+
+ if(provider==='groq'){
+  url='https://api.groq.com/openai/v1/chat/completions';
+  modelName=model || 'llama-3.3-70b-versatile';
+ }
+
+ else if(provider==='openrouter'){
+  url='https://openrouter.ai/api/v1/chat/completions';
+  modelName=model || 'openrouter/free';
+ }
+
+ else if(provider==='gemini'){
+  modelName=model || 'gemini-2.5-flash';
+
+  url='https://generativelanguage.googleapis.com/v1beta/models/'+
+  encodeURIComponent(modelName)+':generateContent?key='+
+  encodeURIComponent(key);
+
+  const response=await fetch(url,{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({
+    systemInstruction:{
+     parts:[{text:systemMessage}]
+    },
+    contents:[{
+     parts:[{text:prompt}]
+    }],
+    generationConfig:{
+     temperature:0.7,
+     maxOutputTokens:4096
+    }
+   })
+  });
+
+  if(!response.ok){
+   const error=await response.text();
+   throw new Error('Gemini API: '+error.slice(0,350));
+  }
+
+  const data=await response.json();
+
+  return data.candidates?.[0]?.content?.parts
+   ?.map(p=>p.text || '').join('\n') || 'لم يرجع المحرك نتيجة.';
+ }
+
+ else{
+  throw new Error('محرك غير معروف');
+ }
+
+ const response=await fetch(url,{
+  method:'POST',
+  headers:{
+   'Content-Type':'application/json',
+   'Authorization':'Bearer '+key
+  },
+  body:JSON.stringify({
+   model:modelName,
+   messages:[
+    {role:'system',content:systemMessage},
+    {role:'user',content:prompt}
+   ],
+   temperature:0.7,
+   max_tokens:4096
+  })
+ });
+
+ if(!response.ok){
+  const error=await response.text();
+  throw new Error('API Error: '+error.slice(0,350));
+ }
+
+ const data=await response.json();
+
+ return data.choices?.[0]?.message?.content || 'لم يرجع المحرك نتيجة.';
+}
+
+/* =====================================
+   CHAT ASSISTANT
+===================================== */
+
+async function sendMessage(){
+ const input=document.getElementById('question');
+ const chat=document.getElementById('chatbox');
+ const text=input.value.trim();
+
+ if(!text){
+  toast('اكتب رسالتك أولاً');
+  return;
+ }
+
+ input.value='';
+
+ const user=document.createElement('div');
+ user.className='msg user';
+ user.textContent=text;
+ chat.appendChild(user);
+
+ const loading=document.createElement('div');
+ loading.className='msg ai';
+ loading.textContent='جاري التفكير...';
+ chat.appendChild(loading);
+
+ chat.scrollTop=chat.scrollHeight;
+
+ try{
+  const answer=await askAI(text,
+  'أنت مساعد AL EHTERAF AI STUDIO. أجب باللغة العربية الواضحة، وكن مفيداً ودقيقاً.');
+
+  loading.textContent=answer;
+ }catch(error){
+  loading.textContent='حدث خطأ: '+error.message;
+ }
+
+ chat.scrollTop=chat.scrollHeight;
+}
+
+function clearChat(){
+ document.getElementById('chatbox').innerHTML=
+ '<div class="msg ai">تم فتح محادثة جديدة. كيف أستطيع مساعدتك؟</div>';
+}
+
+/* =====================================
+   WRITING AND CODING
+===================================== */
+
+async function generateWriting(){
+ const prompt=document.getElementById('writePrompt').value.trim();
+ const mode=document.getElementById('writeMode').value;
+ const output=document.getElementById('writeOutput');
+
+ if(!prompt){
+  toast('اكتب المطلوب أولاً');
+  return;
+ }
+
+ output.textContent='جاري إنشاء النتيجة...';
+
+ try{
+  const answer=await askAI(
+   'المهمة: '+mode+'\n\nالمطلوب:\n'+prompt,
+   'أنت خبير في الكتابة والبرمجة. اكتب إجابة منظمة وكاملة، واشرح الأمور التقنية بوضوح.'
+  );
+
+  output.textContent=answer;
+ }catch(e){
+  output.textContent=e.message;
+ }
+}
+
+/* =====================================
+   IMAGE PROMPT STUDIO
+===================================== */
+
+async function makeImagePrompt(){
+ const prompt=document.getElementById('imagePrompt').value.trim();
+ const style=document.getElementById('imageStyle').value;
+ const output=document.getElementById('imageOutput');
+
+ if(!prompt){
+  toast('اكتب وصف الصورة');
+  return;
+ }
+
+ output.textContent='جاري تجهيز وصف الصورة...';
+
+ try{
+  const answer=await askAI(
+   'Create a detailed professional image generation prompt.\n'+
+   'Style: '+style+'\n'+
+   'Image idea: '+prompt+'\n'+
+   'Include composition, lighting, camera, colors and visual details.',
+   'You are an expert cinematic image prompt designer.'
+  );
+
+  output.textContent=answer;
+ }catch(e){
+  output.textContent=e.message;
+ }
+}
+
+/* =====================================
+   CINEMA VIDEO STUDIO
+===================================== */
+
+async function makeVideoPlan(){
+ const prompt=document.getElementById('videoPrompt').value.trim();
+ const duration=document.getElementById('videoDuration').value;
+ const ratio=document.getElementById('videoRatio').value;
+ const style=document.getElementById('videoStyle').value;
+ const output=document.getElementById('videoOutput');
+
+ if(!prompt){
+  toast('اكتب فكرة الفيديو');
+  return;
+ }
+
+ output.textContent='جاري إعداد السيناريو السينمائي...';
+
+ try{
+  const answer=await askAI(
+   'Create a professional cinematic video production plan.\n'+
+   'Idea: '+prompt+'\n'+
+   'Duration: '+duration+'\n'+
+   'Aspect ratio: '+ratio+'\n'+
+   'Style: '+style+'\n\n'+
+   'Provide:\n'+
+   '1. Cinematic concept.\n'+
+   '2. Scene-by-scene storyboard.\n'+
+   '3. Camera movements.\n'+
+   '4. Lighting and atmosphere.\n'+
+   '5. Individual video generation prompts.\n'+
+   '6. Sound and music suggestions.\n'+
+   '7. Editing and transitions.',
+   'You are a professional Hollywood film director and cinematographer. Create detailed production plans.'
+  );
+
+  output.textContent=answer;
+
+ }catch(e){
+  output.textContent=e.message;
+ }
+}
+
+/* =====================================
+   LOCAL FILE PREVIEW
+===================================== */
+
+document.getElementById('fileInput').addEventListener('change',function(e){
+ const file=e.target.files[0];
+ const preview=document.getElementById('filePreview');
+
+ if(!file)return;
+
+ if(file.type.startsWith('image/')){
+  const url=URL.createObjectURL(file);
+
+  preview.innerHTML='';
+
+  const img=document.createElement('img');
+  img.src=url;
+  img.style.maxWidth='100%';
+  img.style.maxHeight='450px';
+  img.style.display='block';
+  img.style.margin='auto';
+
+  preview.appendChild(img);
+  toast('تم فتح الصورة');
+
+ }else{
+  const reader=new FileReader();
+
+  reader.onload=function(){
+   preview.textContent=reader.result;
+   toast('تم فتح الملف');
+  };
+
+  reader.readAsText(file);
+ }
+});
+
+/* =====================================
+   PROJECT MANAGEMENT
+===================================== */
+
+function getProjects(){
+ try{
+  return JSON.parse(localStorage.getItem('ehteraf_projects')) || [];
+ }catch(e){
+  return [];
+ }
+}
+
+function saveProject(){
+ const name=document.getElementById('projectName').value.trim();
+ const desc=document.getElementById('projectDesc').value.trim();
+
+ if(!name || !desc){
+  toast('أدخل اسم المشروع والوصف');
+  return;
+ }
+
+ const projects=getProjects();
+
+ projects.unshift({
+  id:Date.now(),
+  name:name,
+  description:desc,
+  date:new Date().toLocaleString('ar-IQ')
+ });
+
+ localStorage.setItem('ehteraf_projects',JSON.stringify(projects));
+
+ document.getElementById('projectName').value='';
+ document.getElementById('projectDesc').value='';
+
+ renderProjects();
+ toast('تم حفظ المشروع');
+}
+
+function renderProjects(){
+ const projects=getProjects();
+ const list=document.getElementById('projectList');
+
+ if(!projects.length){
+  list.textContent='لا توجد مشاريع محفوظة.';
+  return;
+ }
+
+ list.innerHTML='';
+
+ projects.forEach(project=>{
+  const card=document.createElement('div');
+  card.className='card';
+
+  const title=document.createElement('h3');
+  title.textContent=project.name;
+
+  const description=document.createElement('p');
+  description.textContent=project.description;
+  description.className='muted';
+
+  const date=document.createElement('small');
+  date.textContent=project.date;
+  date.className='muted';
+
+  const remove=document.createElement('button');
+  remove.className='btn danger';
+  remove.textContent='حذف المشروع';
+
+  remove.onclick=function(){
+   const updated=getProjects().filter(p=>p.id!==project.id);
+   localStorage.setItem('ehteraf_projects',JSON.stringify(updated));
+   renderProjects();
+   toast('تم حذف المشروع');
+  };
+
+  card.append(title,description,date,document.createElement('br'),remove);
+  list.appendChild(card);
+ });
+}
+
+/* =====================================
+   INITIALIZATION
+===================================== */
+
+document.addEventListener('DOMContentLoaded',function(){
+ renderProjects();
+
+ const settings=getSettings();
+
+ if(settings){
+  document.getElementById('provider').value=settings.provider;
+  document.getElementById('apiKey').value=settings.key;
+  document.getElementById('modelName').value=settings.model || '';
+  document.getElementById('connection').textContent='الإعدادات محفوظة';
+ }
+});
+
+</script>
+</body>
+</html>
